@@ -385,7 +385,7 @@
         }
 
         .container .task-list .done {
-            background-image: url(/assets/done.png);
+            background-image: url(../assets/done.png);
             background-color: transparent;
             transition: .5s;
             width: 30px;
@@ -402,7 +402,7 @@
         }
 
         .container .task-list .delete {
-            background-image: url(/assets/delete.png);
+            background-image: url(../assets/delete.png);
             background-color: transparent;
             width: 30px;
             height: 30px;
