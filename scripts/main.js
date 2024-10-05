@@ -218,11 +218,12 @@ class TaskView {
             divInfo.prepend(this.inputChange);
             this.div.querySelector(".edit").classList.toggle("done");
             this.inputChange.value = p.innerText;
-            p.innerText = "";
+            p.style.display = "none";
             this.inputChange.focus();
         } else {
             this.div.querySelector(".edit").classList.toggle("done");
             p.innerText = this.inputChange.value;
+            p.style.display = "block";
             this.inputChange.remove();
             this.task.text = this.inputChange.value;
             dataService.save();
