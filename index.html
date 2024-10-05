@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.png">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-add">
+            <input type="text" class="add-input" id="task-name-input" placeholder="Write a task">
+            <div class="button" id="add-task-btn">Add<span class="button-border"></span></div>
+        </div>
+        <div class="navbar">
+            <div class="show-task">
+                <button id="inline"></button>
+                <button id="squares"></button>
+            </div>
+            <select class="filter">
+                <option value="1" selected="selected">All</option>
+                <option value="2">Active</option>
+                <option value="3">Done</option>
+                <option value="4">Date</option>
+                <option value="5">Newest</option>
+            </select>
+        </div>
+        <p id="start-message">The list is empty</p>
+        <div class="task-list">
+            
+        </div>
+    </div>
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

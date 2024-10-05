@@ -1,0 +1,442 @@
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            color: #1a150e;
+            transition: 0.3s linear;
+            background: linear-gradient(180deg, #615085 0%, #180A37 100%);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 450px;
+            height: 650px;
+            align-items: center;
+            margin-top: 40px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            border-radius: 20px;
+            background: linear-gradient(98.13deg, rgba(255, 255, 255, 0.28) 10%, rgba(255, 255, 255, 0.11) 100%);
+        }
+
+        .container .task-list {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 90%;
+            margin-bottom: 10px;
+            overflow: scroll;
+        }
+
+        .container #start-message {
+            margin: 30px auto;
+            font-size: larger;
+        }
+
+        .container .text-add {
+            padding: 10px;
+            display: flex;
+            width: 80%;
+            height: 40px;
+            justify-content: space-around;
+            grid-gap: 5px;
+            margin-top: 25px;
+        }
+
+        .container .text-add .add-input {
+            width: 70%;
+            background-color: #121212;
+            border: 0px solid;
+            box-shadow: 1px 1px 1px 1px rgb(131, 133, 129),
+                -1px -1px 1px 1px rgb(100, 100, 100);
+            border-radius: 4px;
+            padding: 10px;
+            color: whitesmoke;
+            caret-color: white;
+            outline: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container .text-add .add-input:focus {
+            background-color: #222;
+            border: 1.5px solid rgb(189, 189, 189);
+        }
+
+        .container .text-add .add-input:hover {
+            box-shadow: 1px 1px 1px 1px rgb(149, 151, 147),
+                -1px -1px 1px 1px rgb(124, 124, 124);
+        }
+
+        .container .text-add .add-input::placeholder {
+            color: #999999;
+        }
+
+        .container .text-add .empty {
+            width: 70%;
+            background-color: #121212;
+            border: 2px solid rgb(234, 78, 78);
+            box-shadow: 1px 1px 1px 1px rgb(131, 133, 129),
+                -1px -1px 1px 1px rgb(100, 100, 100);
+            border-radius: 4px;
+            padding: 10px;
+            color: whitesmoke;
+            caret-color: white;
+            outline: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container .text-add .empty::placeholder {
+            color: rgb(234, 78, 78);
+        }
+
+        .container .text-add .empty:active {
+            background-color: #222;
+            border: 1.5px solid rgb(189, 189, 189);
+        }
+
+        .container .text-add .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #f4f0ff;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .container .text-add .button::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 0.5rem;
+            background: linear-gradient(180deg,
+                    rgba(8, 77, 126, 0) 0%,
+                    rgba(8, 77, 126, 0.42) 100%),
+                rgba(47, 255, 255, 0.24);
+            box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
+            z-index: -1;
+        }
+
+        .container .text-add .button::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                    rgba(8, 77, 126, 0) 0%,
+                    rgba(8, 77, 126, 0.42) 100%),
+                rgba(47, 255, 255, 0.24);
+            box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
+            border-radius: 0.5rem;
+            opacity: 0;
+            z-index: -1;
+            transition: all 0.3s ease-in;
+        }
+
+        .container .text-add .button:hover::after {
+            opacity: 1;
+        }
+
+        .container .text-add .button-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 0.5rem;
+            z-index: -1;
+        }
+
+        .container .text-add .button-border::before {
+            content: "";
+            position: absolute;
+            border-radius: 0.5rem;
+            padding: 1px;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(184, 238, 255, 0.24) 0%,
+                    rgba(184, 238, 255, 0) 100%),
+                linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
+            pointer-events: none;
+        }
+
+        .container .navbar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 80%;
+            justify-content: space-between;
+            padding: 8px 8px;
+            margin: 2px 10px;
+        }
+
+        .container .navbar .show-task {
+            display: none;
+        }
+
+        .container .navbar #inline {
+            background-image: url(assets/btn-inline.png);
+            background-color: transparent;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid black;
+            margin-right: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px -1px rgba(0, 0, 0, 0.25);
+        }
+
+        .container .navbar #inline:hover {
+            background-color: #AEB1B4;
+            transform: scale(1.075);
+            transition: .5s;
+        }
+
+        .container .navbar #squares {
+            background-image: url(assets/box.png);
+            background-color: transparent;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px -1px rgba(0, 0, 0, 0.25);
+        }
+
+        .container .navbar #squares:hover {
+            background-color: #AEB1B4;
+            transform: scale(1.075);
+            transition: .5s;
+        }
+
+        .container .navbar .filter {
+            cursor: pointer;
+            display: none;
+            position: relative;
+            font-size: 16px;
+            width: 120px;
+            height: 40px;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            background-color: transparent;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+
+        .container .navbar .filter:hover {
+            background-color: #AEB1B4;
+            transition: 0.5s;
+            border-radius: 0.5rem;
+        }
+
+        .container .task {
+            display: flex;
+            justify-content: space-between;
+            font-size: 19px;
+            gap: 10px;
+            align-items: center;
+            padding: 3px 8px;
+            margin: 1rem;
+            width: 90%;
+            background: linear-gradient(98.13deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.11) 100%);
+            box-shadow: 0px 4px 8px -1px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+        }
+
+        .container .task-list input[type=checkbox] {
+            cursor: pointer;
+            appearance: none;
+            background-color: transparent;
+            margin: 0 0 0 10px;
+            font: inherit;
+            color: currentColor;
+            width: 1.15em;
+            height: 1.15em;
+            border: 0.15em solid #afe864;
+            border-radius: 0.15em;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+
+            &::before {
+                content: "";
+                width: 0.65em;
+                height: 0.65em;
+                transform: scale(0);
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em #afe864;
+                background-color: CanvasText;
+                clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                transform-origin: left top;
+            }
+
+            &:checked::before {
+                transform: scale(1);
+            }
+        }
+
+        .container .task-list p {
+            margin-left: 4px;
+            height: 25px;
+            font-size: 20px;
+            overflow: auto;
+            text-overflow: ellipsis;
+        }
+
+        .container .task-list .completed {
+            transition: 0.2s;
+            opacity: 0.5;
+        }
+
+        .container .task-list .completed p {
+            text-decoration: line-through;
+            text-decoration-color: #afe864;
+        }
+
+        .container .task-list .expired {
+            background-color: rgb(255 32 0);
+            color: black;
+            opacity: 0.5;
+        }
+
+        .container .task-list .expired p {
+            text-decoration: line-through;
+        }
+
+        .container .task-list .list-item-info {
+            display: flex;
+            flex-direction: column;
+            margin: 5px 0;
+            width: 75%;
+            overflow-wrap: anywhere;
+        }
+
+        .container .task-list .input-panel {
+            width: 500px;
+            margin: 8px;
+            padding: 2px;
+        }
+
+        .container .task-list .input-panel button {
+            padding: 4px;
+            width: 25%;
+        }
+
+        .container .task-list .input-panel input {
+            height: 23px;
+            padding-left: 4px;
+            width: 68%;
+        }
+
+        .container .task-list .edit {
+            background-image: url(/assets/edit.png);
+            background-color: transparent;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .container .task-list .edit:hover {
+            transform: scale(1.3);
+            transition: .5s;
+        }
+
+        .container .task-list .changeTask {
+            height: 40px;
+            font-size: 20px;
+            padding: 2px;
+            border-radius: 5px;
+            padding: 0px 5px;
+        }
+
+        .container .task-list .changeTask:focus {
+            outline: 2px solid #719ECE;
+            box-shadow: inset 0 0 5px #719ECE;
+            padding: 0px 5px;
+            font-size: 20px;
+        }
+
+        .container .task-list .done {
+            background-image: url(/assets/done.png);
+            background-color: transparent;
+            transition: .5s;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .container .task-list .done:hover {
+            transform: scale(1.3);
+            transition: .5s;
+        }
+
+        .container .task-list .delete {
+            background-image: url(/assets/delete.png);
+            background-color: transparent;
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .container .task-list .delete:hover {
+            transform: scale(1.2);
+            transition: .5s;
+        }
+
+        .container .task-list #date {
+            text-align: center;
+            border: none;
+            border: 1px solid transparent;
+            background-color: transparent;
+            color: #141415a4;
+            cursor: pointer;
+            width: fit-content;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .container .task-list #date:hover {
+            background-color: #AEB1B4;
+            border-radius: 0.5rem;
+            border: 1px solid black;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 95%;
+            }
+            
+        }
