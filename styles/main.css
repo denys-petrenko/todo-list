@@ -196,7 +196,7 @@
         }
 
         .container .navbar #inline {
-            background-image: url(assets/btn-inline.png);
+            background-image: url(../assets/btn-inline.png);
             background-color: transparent;
             width: 30px;
             height: 30px;
@@ -216,7 +216,7 @@
         }
 
         .container .navbar #squares {
-            background-image: url(assets/box.png);
+            background-image: url(../assets/box.png);
             background-color: transparent;
             width: 30px;
             height: 30px;
@@ -354,7 +354,7 @@
         }
 
         .container .task-list .edit {
-            background-image: url(/assets/edit.png);
+            background-image: url(../assets/edit.png);
             background-color: transparent;
             width: 30px;
             height: 30px;
