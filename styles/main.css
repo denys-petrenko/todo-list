@@ -238,6 +238,7 @@
             cursor: pointer;
             display: none;
             position: relative;
+            padding: 0 2px;
             color: #121212;
             font-size: 16px;
             width: 120px;
@@ -435,11 +436,24 @@
             border: 1px solid black;
         }
 
+        .container .task-list .label-date {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 12px;
+        }
+
         @media (max-width: 500px) {
             .container {
                 width: 95%;
             }
-
-            .container .task-list .list-item-info {}
-
+            .container .task-list .list-item-info {
+                width: 60%;
+            }
+            .container .task-list #date {
+                width: 50%;
+                height: 15px;
+            }
+            .container .task-list .changeTask {
+                border-radius: 0;
+                border-bottom: 1px solid black;
+            }
         }

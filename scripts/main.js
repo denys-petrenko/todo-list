@@ -6,6 +6,7 @@ let filters = document.querySelector(".filter");
 let changeView = document.querySelector(".show-task");
 let container = document.querySelector(".container");
 let today = new Date().toISOString().slice(0, 10);
+let screenWidth = window.innerWidth;
 
 
 window.addEventListener("load", function () {
@@ -128,16 +129,16 @@ class TasksListView {
     }
 
     showCompleted() {
-         this.drawTasks(dataService.completedTasks);
+        this.drawTasks(dataService.completedTasks);
     }
     showNotCompleted() {
-         this.drawTasks(dataService.notCompletedTasks);
+        this.drawTasks(dataService.notCompletedTasks);
     }
     sortDate() {
-         this.drawTasks(dataService.sortByDate);
+        this.drawTasks(dataService.sortByDate);
     }
     sortId() {
-         this.drawTasks(dataService.sortById);
+        this.drawTasks(dataService.sortById);
     }
 }
 
@@ -163,9 +164,12 @@ class TaskView {
         let dateInput = document.createElement("input");
         dateInput.type = "date";
         let today = new Date().toISOString().slice(0, 10);
-        dateInput.min = today;
         dateInput.setAttribute("id", "date");
+        dateInput.min = today;
         dateInput.value = this.task.date;
+        if (screenWidth < "500" && dateInput.value == "") {
+            dateInput.value = today;
+        }
 
         let divInfo = document.createElement("div");
         divInfo.append(p, dateInput);
@@ -204,7 +208,7 @@ class TaskView {
         this.div.remove();
     }
 
-    changeState(element) {
+    changeState() {
         this.task.isDone = !this.task.isDone;
         dataService.save();
         this.div.classList.toggle("completed");
